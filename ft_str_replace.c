@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 02:41:28 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/08 03:58:20 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/08 20:42:49 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char		*replace_occur(int place, char *tor, size_t size, char *tos)
 	tmp = malloc(sizeof(char*) * ft_strlen(tor));
 	while (tor[i])
 	{
-		if (i >= (size_t)(place - 1) && i < (size - 1))
+		if ((i + 1) >= (size_t)(place - 1) && i < (size - 2))
 		{
 			tmp[i] = tos[i_2];
 			i_2++;
