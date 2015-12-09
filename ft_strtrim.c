@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 03:31:59 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/11/27 06:15:20 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/08 22:25:28 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char			*ft_strtrim(char const *s)
 		start++;
 		new++;
 	}
+	tmp[new] = '\0';
 	if (tmp)
 		return (tmp);
 	else

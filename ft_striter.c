@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 20:27:54 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/11/26 20:33:20 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/08 21:49:45 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_striter(char *str, void (*f)(char *))
 {
 	int i;
 
+	if (!str || !f)
+		return ;
 	i = 0;
 	while (str[i])
 	{

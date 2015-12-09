@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 00:33:38 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/11/28 02:09:09 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/08 22:17:36 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n)
 	int len;
 	int boolean;
 
+	if (!s1 || !s2)
+		return (0);
 	len = ft_strlen(s1);
 	i = 0;
 	boolean = 0;

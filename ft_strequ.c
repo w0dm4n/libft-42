@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 23:13:29 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/11/27 00:33:04 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/08 22:16:42 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 int		ft_strequ(char const *s1, char const *s2)
 {
 	int i;
-	int len;
+	int len_s1;
+	int len_s2;
 
 	i = 0;
-	len = ft_strlen(s1);
+	if (!s1 || !s2)
+		return (0);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
 	if (s1 && s2)
 	{
 		while (*s1 && *s2 && *s1++ == *s2++)
@@ -26,7 +30,7 @@ int		ft_strequ(char const *s1, char const *s2)
 	}
 	else
 		return (0);
-	if (i == len)
+	if (i == len_s1 && i == len_s2)
 		return (1);
 	else
 		return (0);

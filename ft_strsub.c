@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 00:49:45 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/11/28 03:49:35 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/08 22:23:42 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,5 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	if (tmp)
 		return (tmp);
 	else
-	{
-		free(tmp);
 		return (NULL);
-	}
 }
