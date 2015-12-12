@@ -1,62 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 06:21:41 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/12 05:12:56 by frmarinh         ###   ########.fr       */
+/*   Created: 2015/11/23 12:41:28 by frmarinh          #+#    #+#             */
+/*   Updated: 2015/12/12 03:14:05 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static char	*set_array(int n, int len, long int i, char *tmp)
+static char	*start_itoa(unsigned int i, int len, int tmp, char *str)
 {
-	long int n_tmp;
-
-	if (n < -2147483647)
-		return ("-2147483648");
-	n_tmp = n;
+	if (len)
+		str[0] = '-';
 	while (i)
 	{
-		n = (n / i);
-		tmp[len] = ((char)n + 48);
-		n = (n_tmp - (n * i));
-		n_tmp = n;
-		i = (i / 10);
+		str[len] = (char)(tmp / i) + '0';
+		tmp = tmp - ((tmp / i) * i);
+		i = i / 10;
 		len++;
 	}
-	tmp[len] = '\0';
-	return (tmp);
+	str[len] = '\0';
+	return (str);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(int c)
 {
-	int			negative;
-	char		*tmp;
-	int			len;
-	long int	i;
-	long int	n_tmp;
+	char			*str;
+	unsigned int	i;
+	int				tmp;
+	int				len;
+	int				nega;
 
-	i = 1;
-	n_tmp = n;
-	negative = 0;
-	len = 1;
-	if (n < 0 && (n = -n))
-		negative = 1;
-	while ((n_tmp = (n_tmp / 10)))
+	nega = 0;
+	if (c < 0)
 	{
-		i = (i * 10);
+		nega++;
+		c = -c;
+	}
+	i = 1;
+	tmp = c;
+	len = 0;
+	while ((tmp = tmp / 10))
+	{
+		i = i * 10;
 		len++;
 	}
-	if (negative && (tmp = ft_strnew(len + 1)))
-		tmp[0] = '-';
-	else
-		tmp = ft_strnew(len);
+	if (!(str = ft_strnew(len + (nega ? 1 : 0) + 1)))
+		return (NULL);
 	len = 0;
-	negative ? len++ : len;
-	return (tmp = set_array(n, len, i, tmp));
+	return (start_itoa(i, (nega ? 1 : 0), c, str));
 }

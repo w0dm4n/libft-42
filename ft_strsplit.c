@@ -93,7 +93,7 @@ char			**ft_strsplit(char const *s, char c)
 	pos = 0;
 	occurence = 0;
 	if (!(res = ft_strnew(ft_strlen(s))))
-		return	(NULL);
+		return (NULL);
 	nbr = char_nbr(s, c) + 1;
 	if (!(tmp = malloc(sizeof(char) * (ft_strlen(s) * ft_strlen(s)))))
 		return (NULL);

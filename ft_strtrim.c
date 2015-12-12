@@ -49,7 +49,7 @@ char			*ft_strtrim(char const *s)
 	int		new;
 
 	new = 0;
-	if(!(tmp = malloc(sizeof(char) * ft_strlen(s) + 1)))
+	if (!(tmp = malloc(sizeof(char) * ft_strlen(s) + 1)))
 		return (NULL);
 	start = ft_getstart(s);
 	end = ft_getend(s);
