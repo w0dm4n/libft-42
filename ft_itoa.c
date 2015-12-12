@@ -6,17 +6,19 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 06:21:41 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/11/29 05:07:35 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/12 05:12:56 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char	*set_array(long int n, int len, long int i, char *tmp)
+static char	*set_array(int n, int len, long int i, char *tmp)
 {
 	long int n_tmp;
 
+	if (n < -2147483647)
+		return ("-2147483648");
 	n_tmp = n;
 	while (i)
 	{
@@ -31,7 +33,7 @@ static char	*set_array(long int n, int len, long int i, char *tmp)
 	return (tmp);
 }
 
-char		*ft_itoa(long int n)
+char		*ft_itoa(int n)
 {
 	int			negative;
 	char		*tmp;

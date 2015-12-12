@@ -6,13 +6,13 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 12:42:28 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/08 03:15:41 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/12 03:14:10 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stddef.h>
+# include <stdlib.h>
 
 size_t				ft_strlen(const char *s);
 void				ft_putchar(char c);
@@ -65,7 +65,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-char				*ft_itoa(long int n);
+char				*ft_itoa(int n);
 
 typedef	struct		s_list
 {
@@ -82,4 +82,8 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 char				*ft_str_replace(char *toreplace, char *tof, char *toset);
+void				ft_lstaddend(t_list **list, t_list *toadd);
+int					ft_strposition(char *from, char *tofind);
+char				*ft_strdelchar(char *str, char c);
+size_t				ft_lenarray(void **array);
 #endif

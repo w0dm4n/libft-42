@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 03:31:59 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/08 22:25:28 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/12 04:57:15 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ char			*ft_strtrim(char const *s)
 	int		new;
 
 	new = 0;
-	tmp = malloc(sizeof(char*) * ft_strlen(s) + 1);
+	if(!(tmp = malloc(sizeof(char) * ft_strlen(s) + 1)))
+		return (NULL);
 	start = ft_getstart(s);
 	end = ft_getend(s);
 	while (start < end)
@@ -59,11 +60,5 @@ char			*ft_strtrim(char const *s)
 		new++;
 	}
 	tmp[new] = '\0';
-	if (tmp)
-		return (tmp);
-	else
-	{
-		free(tmp);
-		return (NULL);
-	}
+	return (tmp);
 }

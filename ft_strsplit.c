@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 06:16:15 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/08 22:18:48 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/12 05:01:07 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,11 @@ char			**ft_strsplit(char const *s, char c)
 
 	pos = 0;
 	occurence = 0;
-	res = ft_strnew(ft_strlen(s));
+	if (!(res = ft_strnew(ft_strlen(s))))
+		return	(NULL);
 	nbr = char_nbr(s, c) + 1;
-	tmp = malloc(sizeof(char) * (ft_strlen(s) * ft_strlen(s)));
+	if (!(tmp = malloc(sizeof(char) * (ft_strlen(s) * ft_strlen(s)))))
+		return (NULL);
 	while (nbr-- > 0)
 	{
 		pos = where(s, pos, c);
@@ -104,8 +106,5 @@ char			**ft_strsplit(char const *s, char c)
 		if (pos == 0)
 			pos++;
 	}
-	if (tmp)
-		return (tmp);
-	free(tmp);
-	return (NULL);
+	return (tmp);
 }

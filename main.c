@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 14:22:36 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/12 05:01:43 by frmarinh         ###   ########.fr       */
+/*   Created: 2015/12/11 21:08:22 by frmarinh          #+#    #+#             */
+/*   Updated: 2015/12/11 21:39:35 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+int main(int argc, const char *argv[])
 {
-	write(1, &c, 1);
+	ft_putstr(ft_itoa(-623));
+	return 0;
 }

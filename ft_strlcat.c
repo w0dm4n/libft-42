@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 13:53:43 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/07 21:05:29 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/12 04:16:08 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,29 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	dest_size;
-	size_t	src_size;
+	size_t		n;
+	size_t		dlen;
+	char		*dest_cpy;
+	const char	*src_cpy;
 
-	i = 0;
-	dest_size = ft_strlen(dest);
-	src_size = ft_strlen(src);
-	if (size < dest_size)
-		return (size + src_size);
-	while (i < (size - dest_size - 1))
+	n = size;
+	src_cpy = src;
+	dest_cpy = dest;
+	while (*dest_cpy != '\0' && n--)
+		dest_cpy++;
+	dlen = dest_cpy - dest;
+	n = size - dlen;
+	if (n == 0)
+		return (dlen + ft_strlen(src));
+	while (*src_cpy != '\0')
 	{
-		dest[i + dest_size] = src[i];
-		i++;
+		if (n != 1)
+		{
+			*dest_cpy++ = *src_cpy;
+			n--;
+		}
+		src_cpy++;
 	}
-	dest[dest_size + i] = '\0';
-	return (dest_size + src_size);
+	*dest_cpy = '\0';
+	return (dlen + (src_cpy - src));
 }
