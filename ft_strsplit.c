@@ -71,7 +71,8 @@ static char		*get_from(char const *s, int start, int end)
 	int		i;
 
 	i = 0;
-	tmp = ft_strnew(ft_strlen(s));
+	if (!(tmp = ft_strnew(ft_strlen(s))))
+		return (NULL);
 	while (start < end)
 	{
 		tmp[i] = s[start];
@@ -106,5 +107,6 @@ char			**ft_strsplit(char const *s, char c)
 		if (pos == 0)
 			pos++;
 	}
+	tmp[occurence] = NULL;
 	return (tmp);
 }

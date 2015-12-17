@@ -6,7 +6,7 @@
 /*   By: frmarinh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 11:31:21 by frmarinh          #+#    #+#             */
-/*   Updated: 2015/12/08 23:56:05 by frmarinh         ###   ########.fr       */
+/*   Updated: 2015/12/12 23:59:38 by frmarinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*tmp;
 
-	if (!s)
-		return ;
 	tmp = s;
 	while (n)
 	{
